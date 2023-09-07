@@ -28,7 +28,7 @@
 ### MATRIX ###
 ## Q1
 #neo <- 
-neo%*%neo%*%neo == 0
+#neo%*%neo%*%neo == 0
 
 #neo2 <- neo
 #neo2[,] <-
