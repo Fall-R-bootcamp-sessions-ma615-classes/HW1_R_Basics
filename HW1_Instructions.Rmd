@@ -11,8 +11,18 @@ editor_options:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+# Note:
+
+**1.** Please make sure that you use the given name for every question to ensure you get the full credit from the autograder, see this document as well as `hw1_basics.R` for correct names. Answer's with the wrong variable or function names will be ignored by GradeScope.
+
+**2.** Please make sure your submission file name is `hw1_basics.R`.
+
+**4.** Be sure to write in your name in the `YOUR NAME HERE` comment.
+
+**4.** The due day for this assignment is **September 13, 2023 11:59 pm**, late submissions will not be accepted. 
 
 # Vector
+*do not use loops*
 
 **1.** Create the following vector:\
 **(a)** (1,2,3,...,19,20), Name `v1`;\
@@ -58,7 +68,7 @@ B = \begin{bmatrix}
 \end{bmatrix}
 $$ 
 \
-Calculate and save the $3 \times 3$ matrix $B^t B$ (look at the help for `crossprod`.) Name `redOrBlue`;\
+Calculate and save the $3 \times 3$ matrix $B^t B$ (look at the help for the `crossprod` R function for additional guidance) Name `redOrBlue`;\
 
 **3.** Solve the following system of linear equations in five unknowns by considering an appropriate matrix equation $Ax = y$.\
 $$
@@ -91,7 +101,7 @@ The answer should be a matrix with two columns; so, form example, the row (1, 2)
 Repeating a column is permitted; so, for example, the final output matrix could contain the rows (1, 2), (2, 1) and (2, 2).
 Name `counts`;\
 
-**5.** Calculate the following and assign them to the given variable name:\
+**5.** Calculate the following and assign them to the given variable name *do not use loops*:\
 **(a)** `somewhere`\
 $$
 \sum_{i = 1}^{20}\sum_{j = 1}^{5}\frac{i^4}{(3+j)}
@@ -161,30 +171,33 @@ Populate your rows with the following columns:
 
 **1.** Create two functions `function1` and `function2`,
 
-**(a).** `function1(xv)` return the vector $(x_1,x_2^2,...,x_n^n)$, calculate vector $xv = (0.0,0.1,...,0.8,0.9,1.0)$ Name: `func1_ans`;\
+**(a).** `function1(xv)` return the vector $(x_1,x_2^2,...,x_n^n)$, use the vector $xv = (0.0,0.1,...,0.8,0.9,1.0)$ to calculate `func1_ans`;\
 
-**(b).** `function2(xv)` return $(x_1,\frac{x_2^2}{2},\frac{x_3^3}{3},...,\frac{x_n^n}{n})$, calculate vector $xv = (0.0,0.1,...,0.8,0.9,1.0)$ Name: `func2_ans`;\
+**(b).** `function2(xv)` return $(x_1,\frac{x_2^2}{2},\frac{x_3^3}{3},...,\frac{x_n^n}{n})$, use the vector $xv = (0.0,0.1,...,0.8,0.9,1.0)$ to calculate `func2_ans`;\
 
 **(c).** Write a function `function3` which takes 2 arguments x and n where x is a single number and n is a strictly positive integer.
 The function should return the value of\
 $$
 1 + \frac{x}{1} + \frac{x^2}{2} + \frac{x^3}{3} + ... + \frac{x^n}{n}
-$$ then calculate vector $xv = (0.0,0.1,...,0.8,0.9,1.0)$\
-Name the variable: `func3_ans`;\
+$$ 
+\
+then use the vector $xv = (0.0,0.1,...,0.8,0.9,1.0)$ to calculate `func3_ans`;\
 
-**2.** Write a function called `findodd` that returns a lists the odd numbers between 1 and input `xv`.
+**2.** Write a function called `findodd(x)` that returns a list of the odd numbers between 1 and input `x`.
 
-**3.** Write a function that receives two inputs, a number x, and another number y, the function should return x or the next largest number divisible by y.
+**3.** Write a function that receives two inputs, a number `x`, and another number `y`, the function should return `x` or the next largest number divisible by `y`.
 *hint: use the modulo operator `%%.`*
 
-Name: `modNumber(x,y)`.
+Call your function `modNumber(x,y)`.
 
 *ex: `modNumber(50,16)` should return `[1] 64` and `modNumber(64,16)` should also return `[1] 64`*
 
 *Your supplied `modNumber(x,y)` should return `[1] 64` and `modNumber(64,16)` should also return `[1] 64`.*
+\newpage
 
 **4.** Write a function, `matFn`, which takes 2 arguments *n* and *k* which are positive integers.
-It should return the *n × n* matrix: $$
+It should return the *n × n* matrix: \
+$$
 \begin{bmatrix}
 k & 1 & 0 & 0 & ... & 0 & 0 \\
 1 & k & 1 & 0 & ... & 0 & 0 \\
@@ -194,7 +207,10 @@ k & 1 & 0 & 0 & ... & 0 & 0 \\
 0 & 0 & 0 & 0 & ... & k & 1 \\
 0 & 0 & 0 & 0 & ... & 1 & k
 \end{bmatrix}
-$$ *Hint: First try to do it for a specific case such as n = 5 and k = 2 on the Command Line.*\
+$$ 
+
+*Hint: First try to do it for a specific case such as n = 5 and k = 2 on the Command Line.*\
+
 
 **5.** Zeller's congruence is the formula: $f = ([2.6m - 0.2] + k + y + [y/4] + [c/4] - 2c) mod 7$ where $[x]$ denotes the integer part of $x$; for example $[7.5] = 7$.
 Zeller's congruence returns the day of the week $f$ given: $k$ = the day of the month,\
@@ -208,8 +224,11 @@ Note that the value of 1 for $f$ denotes Sunday, 2 denotes Monday, etc.\
 
 # More Function
 
-**1.**\
-**(a)** Write a function `quadmap( start, rho, niter)` which returns the vector $(x_1,...,x_n)$ where $rx_{k-1}(1-x_{k-1})$ and - `niter` denotes $n$, - `start` denotes $x_1$ - `rho` denotes $r$.\
+**1.**
+**(a)** Write a function `quadmap(start, rho, niter)` which returns the vector $(x_1,...,x_n)$ where $rx_{k-1}(1-x_{k-1})$ and\
+  - `niter` denotes $n$,  
+  - `start` denotes $x_1$  
+  - `rho` denotes $r$.\
 
 Try out the function you have written: - for \$ r=2 \$ and $0<x_1<1$ you should get $x_n \to 0.5$ as $n \to \infty$.
 - try `tmp <- quadmap(start = 0.95, rho=2.99, niter=500)`, try `plot(tmp, type="l")` in console.\
@@ -217,14 +236,14 @@ Try out the function you have written: - for \$ r=2 \$ and $0<x_1<1$ you should 
 **(b)** Now write a function, `quad2`, which determines the number of iterations needed to get \$\|x_n - x\_{n-1}\|\<0.02.
 So this function has only 2 arguments: `start` and `rho` (For `start=0.95` and `rho=2.99`, the answer is 84.)\
 
-**2.**\
+**2.**
 **(a)** Suppose `matA` is a matrix containing some occurrences of `NA`.
 Pick out the submatrix which consists of all columns which contain no occurrence of `NA`.
 So the objective is to write a function which takes a single argument which can be assumed to be a matrix and returns a matrix.\
 
 **(b)** Now write a function which takes a single argument which can be assumed to be a matrix and returns the submatrix which is obtained by deleting every row and column from the input matrix which contains an `NA`.\
 
-**3.**\
+**3.**
 Experiment with different ways of defining a function which calculates the following double sum for any value of $n$.\
 $$
 f(n)=\sum_{i = l}^{n}\sum_{s=l}^{r}\frac{s^2}{10 + 4r^3}
@@ -235,10 +254,12 @@ $$\
 
 **(c)** Write a function `funC` which uses the function outer to construct a matrix with suitable entries so that the sum of the matrix gives the required answer.\
 
-**(d)** Create a function which takes a sungle argument `r` and calculates\
+**(d)** Create a function which takes a single argument `r` and calculates\
 $$
 \sum_{s=l}^{r}\frac{s^2}{10 + 4r^3}
-$$ Then write a function `funD` which uses `sapply` to calculate the double sum.
+$$ 
+\
+Then write a function `funD` which uses `sapply` to calculate the double sum.
 Note that `sapply` is just a combination of `unlist` and `lapply`.
 Is there any increase in speed gained by using this information (`funE`)?
 
